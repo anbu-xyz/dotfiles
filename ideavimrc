@@ -45,30 +45,44 @@ set which-key
 " the mode is pressing Shift-Q.
 nmap Q <Nop>
 
-" Don't use Replace mode. 'Replace' mode replaces text as you type instead of inserting.
-nmap R <Nop>
-
 "" -- Map IDE actions to IdeaVim --
 "" -- Location of document on how to map Intellij Actions: https://jb.gg/abva4t
+
+" Don't use Replace mode. 'Replace' mode replaces text as you type instead of inserting.
+" Instead map this to ataman LeaderAction
+" nmap <C-,> <Action>(LeaderAction)
+" vmap <C-,> <Action>(LeaderAction)
 
 let mapleader = " "
 
 "" Map <leader>d to start debug
-nmap <leader>d <Action>(Debug)
 nmap <leader>sc <Action>(GotoClass)
-nmap <leader>sf <Action>(GotoFiles)
+nmap <leader>sf <Action>(GotoFile)
 nmap <leader><Tab> <Action>(Switcher)
 nmap <leader>f <Plug>(easymotion-s)
 
-" -- Breakpoints
-map ,break <Action>(ToggleLineBreakpoint)
+" Breakpoints
+nmap ,break <Action>(ToggleLineBreakpoint)
 nmap ,Break :action ViewBreakpoints<Enter>
-nmap ,clear :nohl<CR>
 
+nmap ,debug <Action>(Debug)
+
+" show settings
+nmap ,sett <Action>(ShowSettings)
+
+" clear Highlight
+nnoremap ,clear :nohl<CR>
+
+" move cursor between splits
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
 inoremap <C-h> <Esc><C-w>hi
 inoremap <C-l> <Esc><C-w>li
 
+" Next Prev
+nmap <C-i> <Action>(Back)
+nmap <C-o> <Action>(Forward)
+
+" close editor
 nmap zz <Action>(CloseEditor)
