@@ -1,0 +1,74 @@
+" Show line numbers to the left. Do relative numbering.
+set number relativenumber
+
+" Ignore case for search. If search word contains upper case use case sensitive search.
+set ignorecase smartcase
+
+" Share clipboard with the system
+set clipboard+=unnamed
+
+" Do incremental searching. Searches text as you type.
+set incsearch
+
+" Show a few lines of context around the cursor.
+set scrolloff=5
+
+" Highlight searched words/patterns as you type
+set hlsearch
+
+" set timeouts.
+" Note: Key codes are special keys like `<Esc>`, `<C-w>`, `<CR>`.
+"       Key sequences are regular kes mapped for actions 'dd', 'gg=G'
+" timeout  - set long timeout. This helps with allowing for long sequences like ',clear'
+"          - also a long timeout is required by 'which-key' intellij plugin if installed.
+set timeout timeoutlen=5000
+" ttimeout - Quickly timeout keycodes
+set ttimeout ttimeoutlen=300
+
+"" Plugins  ----------------------------------------------------------------
+""
+set surround
+set easymotion
+
+" which-key plugin shows the keycodes as a menu at the bottom of the window.
+" It is really useful when you are learning newly configured keycodes and bindings.
+
+set which-key
+
+"" Plugins not so useful
+""
+" set multicursor - most of the features provided by multicursor can be
+"                   done using vanilla vim key strokes
+
+"" Key bindings ----------------------------------------------------------
+" Don't use Ex mode. 'Ex' mode in vim emulates old Ex editor. The default key to enter
+" the mode is pressing Shift-Q.
+nmap Q <Nop>
+
+" Don't use Replace mode. 'Replace' mode replaces text as you type instead of inserting.
+nmap R <Nop>
+
+"" -- Map IDE actions to IdeaVim --
+"" -- Location of document on how to map Intellij Actions: https://jb.gg/abva4t
+
+let mapleader = " "
+
+"" Map <leader>d to start debug
+nmap <leader>d <Action>(Debug)
+nmap <leader>sc <Action>(GotoClass)
+nmap <leader>sf <Action>(GotoFiles)
+nmap <leader><Tab> <Action>(Switcher)
+nmap <leader>f <Plug>(easymotion-s)
+
+" -- Breakpoints
+map ,break <Action>(ToggleLineBreakpoint)
+nmap ,Break :action ViewBreakpoints<Enter>
+nmap ,clear :nohl<CR>
+
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+inoremap <C-h> <Esc><C-w>hi
+inoremap <C-l> <Esc><C-w>li
+
+nmap zz <Action>(CloseEditor)
