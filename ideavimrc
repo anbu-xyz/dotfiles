@@ -28,7 +28,6 @@ set ttimeout ttimeoutlen=300
 "" Plugins  ----------------------------------------------------------------
 ""
 set surround
-set easymotion
 
 " which-key plugin shows the keycodes as a menu at the bottom of the window.
 " It is really useful when you are learning newly configured keycodes and bindings.
@@ -43,35 +42,29 @@ set which-key
 "" Key bindings ----------------------------------------------------------
 " Don't use Ex mode. 'Ex' mode in vim emulates old Ex editor. The default key to enter
 " the mode is pressing Shift-Q.
-nmap Q <Nop>
+"nmap Q <Nop>
 
 "" -- Map IDE actions to IdeaVim --
 "" -- Location of document on how to map Intellij Actions: https://jb.gg/abva4t
 
-" Don't use Replace mode. 'Replace' mode replaces text as you type instead of inserting.
-" Instead map this to ataman LeaderAction
-" nmap <C-,> <Action>(LeaderAction)
-" vmap <C-,> <Action>(LeaderAction)
-
 let mapleader = " "
 
-"" Map <leader>d to start debug
-nmap <leader>sc <Action>(GotoClass)
-nmap <leader>sf <Action>(GotoFile)
-nmap <leader><Tab> <Action>(Switcher)
-nmap <leader>f <Plug>(easymotion-s)
+nmap <C-n> <Action>(GotoClass)
+nmap <C-S-n> <Action>(GotoFile)
 
 " Breakpoints
 nmap ,break <Action>(ToggleLineBreakpoint)
 nmap ,Break :action ViewBreakpoints<Enter>
-
-nmap ,debug <Action>(Debug)
-
-" show settings
-nmap ,sett <Action>(ShowSettings)
+nmap ,book <Action>(ToggleBookmark)
+nmap ,Book <Action>(ActivateBookmarksToolWindow)
 
 " clear Highlight
 nnoremap ,clear :nohl<CR>
+
+" debug
+nmap si <Action>(StepInto)
+nmap so <Action>(StepOver)
+nmap sO <Action>(StepOut)
 
 " move cursor between splits
 nnoremap <C-l> <C-w>l
@@ -86,3 +79,9 @@ nmap <C-o> <Action>(Forward)
 
 " close editor
 nmap zz <Action>(CloseEditor)
+nmap ZZ <Action>(Exit)
+
+" Zoom
+nmap ]] <Action>(EditorIncreaseFontSize)
+nmap [[ <Action>(EditorDecreaseFontSize)
+nmap [] <Action>(EditorResetFontSize)
