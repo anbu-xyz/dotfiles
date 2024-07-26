@@ -61,9 +61,11 @@ nmap ,book <Action>(ToggleBookmark)
 nnoremap ,clear :nohl<CR>
 
 " debug
-nmap si <Action>(StepInto)
-nmap so <Action>(StepOver)
-nmap sO <Action>(StepOut)
+nmap ,di <Action>(StepInto)
+nmap ,do <Action>(StepOver)
+nmap ,dO <Action>(StepOut)
+nmap ,dr <Action>(Debugger.PopFrame)
+nmap ,dc <Action>(Resume)
 
 " move cursor between splits
 nnoremap <C-l> <C-w>l
