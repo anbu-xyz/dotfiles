@@ -55,9 +55,7 @@ nmap <C-S-n> <Action>(GotoFile)
 
 " Breakpoints
 nmap ,break <Action>(ToggleLineBreakpoint)
-nmap ,Break :action ViewBreakpoints<Enter>
 nmap ,book <Action>(ToggleBookmark)
-nmap ,Book <Action>(ActivateBookmarksToolWindow)
 
 " clear Highlight
 nnoremap ,clear :nohl<CR>
@@ -87,6 +85,18 @@ nmap ]] <Action>(EditorIncreaseFontSize)
 nmap [[ <Action>(EditorDecreaseFontSize)
 nmap [] <Action>(EditorResetFontSize)
 
-" NERDTree
+" recent
+nmap ,rc <Action>(RecentChangedFiles)
+nmap ,rf <Action>(RecentFiles)
+nmap ,rl <Action>(RecentLocations)
+nmap ,rt <Action>(ShowRecentTests)
 
+" select file
+nmap ,si <Action>(SelectIn)
+nmap ,jb <Action>(JumpToLastWindow)
+
+" Vim
+nmap ,vrl <Action>(IdeaVim.ReloadVimRc.reload)
+
+" NERDTree
 nmap ,ntt :NERDTreeToggle<CR>
