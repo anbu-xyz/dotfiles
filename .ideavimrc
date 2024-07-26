@@ -1,4 +1,4 @@
-"In Express.js, how do you define a basic GET route Show line numbers to the left. Do relative numbering.
+"Do relative numbering.
 set number relativenumber
 
 " Ignore case for search. If search word contains upper case use case sensitive search.
@@ -54,18 +54,32 @@ nmap <C-n> <Action>(GotoClass)
 nmap <C-S-n> <Action>(GotoFile)
 
 " Breakpoints
-nmap ,break <Action>(ToggleLineBreakpoint)
-nmap ,book <Action>(ToggleBookmark)
+nmap <leader>brkl <Action>(ToggleLineBreakpoint)
+nmap <leader>brkt <Action>(ToggleTemporaryLineBreakpoint)
+nmap <leader>brkm <Action>(ToggleMethodBreakpoint)
+
+" Bookmarks
+nmap <leader>bkl <Action>(ToggleBookmark)
+
+nmap <C-b><C-b>1 <Action>(ToggleBookmark1)
+nmap <C-b><C-b>2 <Action>(ToggleBookmark2)
+nmap <C-b><C-b>3 <Action>(ToggleBookmark3)
+nmap <C-b><C-b>4 <Action>(ToggleBookmark4)
+
+nmap <C-b><C-b>a <Action>(ToggleBookmarkA)
+nmap <C-b><C-b>b <Action>(ToggleBookmarkB)
+nmap <C-b><C-b>c <Action>(ToggleBookmarkC)
+nmap <C-b><C-b>d <Action>(ToggleBookmarkD)
 
 " clear Highlight
-nnoremap ,clear :nohl<CR>
+nnoremap <leader>clear :nohl<CR>
 
 " debug
-nmap ,di <Action>(StepInto)
-nmap ,do <Action>(StepOver)
-nmap ,dO <Action>(StepOut)
-nmap ,dr <Action>(Debugger.PopFrame)
-nmap ,dc <Action>(Resume)
+nmap <leader>di <Action>(StepInto)
+nmap <leader>do <Action>(StepOver)
+nmap <leader>dO <Action>(StepOut)
+nmap <leader>dr <Action>(Debugger.PopFrame)
+nmap <leader>dc <Action>(Resume)
 
 " move cursor between splits
 nnoremap <C-l> <C-w>l
@@ -88,17 +102,20 @@ nmap [[ <Action>(EditorDecreaseFontSize)
 nmap [] <Action>(EditorResetFontSize)
 
 " recent
-nmap ,rc <Action>(RecentChangedFiles)
-nmap ,rf <Action>(RecentFiles)
-nmap ,rl <Action>(RecentLocations)
-nmap ,rt <Action>(ShowRecentTests)
+nmap <leader>rc <Action>(RecentChangedFiles)
+nmap <leader>rf <Action>(RecentFiles)
+nmap <leader>rl <Action>(RecentLocations)
+nmap <leader>rt <Action>(ShowRecentTests)
 
 " select file
-nmap ,si <Action>(SelectIn)
-nmap ,jb <Action>(JumpToLastWindow)
+nmap <leader>si <Action>(SelectIn)
+nmap <leader>jb <Action>(JumpToLastWindow)
 
 " Vim
-nmap ,vrl <Action>(IdeaVim.ReloadVimRc.reload)
+nmap <leader>vrl <Action>(IdeaVim.ReloadVimRc.reload)
 
 " NERDTree
-nmap ,ntt :NERDTreeToggle<CR>
+nmap <leader>ntt :NERDTreeToggle<CR>
+
+" navbar popup
+nmap <leader>pp <Action>(NavbarPopupMenu)
