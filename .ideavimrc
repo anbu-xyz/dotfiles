@@ -33,7 +33,7 @@ set NERDTree
 " which-key plugin shows the keycodes as a menu at the bottom of the window.
 " It is really useful when you are learning newly configured keycodes and bindings.
 
-set which-key
+"set which-key
 
 "" Plugins not so useful
 ""
@@ -56,15 +56,19 @@ nmap <C-S-n> <Action>(GotoFile)
 " Breakpoints
 nmap <leader>brkl <Action>(ToggleLineBreakpoint)
 nmap <leader>brkt <Action>(ToggleTemporaryLineBreakpoint)
-nmap <leader>brkm <Action>(ToggleMethodBreakpoint)
 
 " Bookmarks
-nmap <leader>bkl <Action>(ToggleBookmark)
+nmap <C-b><C-b>0 <Action>(ToggleBookmark)
 
 nmap <C-b><C-b>1 <Action>(ToggleBookmark1)
 nmap <C-b><C-b>2 <Action>(ToggleBookmark2)
 nmap <C-b><C-b>3 <Action>(ToggleBookmark3)
 nmap <C-b><C-b>4 <Action>(ToggleBookmark4)
+nmap <C-b><C-b>5 <Action>(ToggleBookmark5)
+nmap <C-b><C-b>6 <Action>(ToggleBookmark6)
+nmap <C-b><C-b>7 <Action>(ToggleBookmark7)
+nmap <C-b><C-b>8 <Action>(ToggleBookmark8)
+nmap <C-b><C-b>9 <Action>(ToggleBookmark9)
 
 nmap <C-b><C-b>a <Action>(ToggleBookmarkA)
 nmap <C-b><C-b>b <Action>(ToggleBookmarkB)
@@ -73,6 +77,7 @@ nmap <C-b><C-b>d <Action>(ToggleBookmarkD)
 
 " clear Highlight
 nnoremap <leader>clear :nohl<CR>
+nnoremap <leader>rno   :set relativenumber<CR>
 
 " debug
 nmap <leader>di <Action>(StepInto)
@@ -94,7 +99,7 @@ nmap <C-o> <Action>(Forward)
 
 " close editor
 nmap zz <Action>(CloseEditor)
-nmap ZZ <Action>(Exit)
+nmap ZZ <Action>(CloseAllEditors)
 
 " Zoom
 nmap ]] <Action>(EditorIncreaseFontSize)
@@ -106,6 +111,9 @@ nmap <leader>rc <Action>(RecentChangedFiles)
 nmap <leader>rf <Action>(RecentFiles)
 nmap <leader>rl <Action>(RecentLocations)
 nmap <leader>rt <Action>(ShowRecentTests)
+
+" run program
+nmap <leader>rr <Action>(Rerun)
 
 " select file
 nmap <leader>si <Action>(SelectIn)
@@ -119,3 +127,18 @@ nmap <leader>ntt :NERDTreeToggle<CR>
 
 " navbar popup
 nmap <leader>pp <Action>(NavbarPopupMenu)
+
+" Open supermaven
+nmap <C-S-i> <Action>(QuickImplementations)
+nmap <C-S-a>i <Action>(EditWithSupermaven)
+
+" Outline
+nmap <C-S-o> <Action>(FileStructurePopup)
+
+" Go to declaration
+nmap gD <Action>(SplitVertically)<Action>(GotoDeclaration)
+nmap gi <Action>(SplitVertically)
+
+nmap <C-x> <Action>(MaximizeEditorInSplit)
+nmap <C-S-p> <Action>(StretchSplitToLeft)
+nmap <C-p> <Action>(StretchSplitToRight)
